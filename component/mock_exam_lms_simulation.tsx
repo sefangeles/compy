@@ -834,26 +834,27 @@ export default function App() {
           <>
             <div className="flex-1 w-full relative">
               {/* TIMER */}
-              <div
-                className={`fixed top-20 right-4 md:absolute md:-top-14 md:right-0 bg-[#ebf2e3] text-gray-800 px-3 py-1.5 rounded-full shadow-lg flex items-center gap-3 z-40 transition-transform duration-300 ${
-                  !timerVisible ? "translate-x-3/4 opacity-50" : ""
-                }`}
-              >
-                {timerVisible && (
-                  <div className="flex items-center gap-1.5 font-bold text-sm min-w-[60px]">
-                    <Clock size={16} />
-                    <span>{formatTime(timeLeft)}</span>
-                  </div>
-                )}
-
-                <button
-                  onClick={() => setTimerVisible(!timerVisible)}
-                  className="bg-white hover:bg-gray-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded border border-gray-300 shadow-sm"
+              <div className="flex justify-end mb-4 w-full">
+                <div
+                  className={`bg-[#ebf2e3] text-gray-800 px-3 py-1.5 rounded-full shadow-lg flex items-center gap-3 z-40 transition-all duration-300 ${
+                    !timerVisible ? "opacity-70" : ""
+                  }`}
                 >
-                  {timerVisible ? "Hide" : "Show"}
-                </button>
-              </div>
+                  {timerVisible && (
+                    <div className="flex items-center gap-1.5 font-bold text-sm min-w-[60px]">
+                      <Clock size={16} />
+                      <span>{formatTime(timeLeft)}</span>
+                    </div>
+                  )}
 
+                  <button
+                    onClick={() => setTimerVisible(!timerVisible)}
+                    className="bg-white hover:bg-gray-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded border border-gray-300 shadow-sm"
+                  >
+                    {timerVisible ? "Hide" : "Show"}
+                  </button>
+                </div>
+              </div>
               {/* QUESTION CARD */}
               <div className="bg-[#2b2d31] rounded-lg p-5 sm:p-7 shadow-sm border border-gray-700">
                 <div className="text-blue-400 font-bold mb-4 uppercase tracking-wider text-sm border-b border-gray-700 pb-2">
